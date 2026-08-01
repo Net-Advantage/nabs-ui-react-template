@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   Shell,
   Branding,
@@ -6,8 +5,6 @@ import {
   Button,
   Panel,
 } from "@net-advantage/nabs-ui-shell";
-import nabsLogoLight from "./assets/net-advantage-logo-launch-light.svg";
-import nabsLogoDark from "./assets/net-advantage-logo-launch-dark.svg";
 
 const navItems = [
   { id: "home", label: "Home" },
@@ -15,48 +12,28 @@ const navItems = [
   { id: "settings", label: "Settings" },
 ];
 
-type ThemeToggleProps = {
-  onToggle?: () => void;
-};
-
-function ThemeToggle({ onToggle }: ThemeToggleProps) {
+function ThemeToggle() {
   const toggle = () => {
     const root = document.documentElement;
     const isDark = root.classList.contains("nabs-ui-theme-dark");
     root.classList.remove("nabs-ui-theme-light", "nabs-ui-theme-dark");
     root.classList.add(isDark ? "nabs-ui-theme-light" : "nabs-ui-theme-dark");
-    onToggle?.();
   };
 
   return <Button onClick={toggle}>Toggle theme</Button>;
 }
 
 export default function App() {
-  const [isDarkTheme, setIsDarkTheme] = useState(() =>
-    document.documentElement.classList.contains("nabs-ui-theme-dark")
-  );
-
-  useEffect(() => {
-    const root = document.documentElement;
-    const observer = new MutationObserver(() => {
-      setIsDarkTheme(root.classList.contains("nabs-ui-theme-dark"));
-    });
-
-    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <Shell
       header={
         <Branding
           logo={
-            <img
-              src={isDarkTheme ? nabsLogoDark : nabsLogoLight}
-              alt=""
-              width={32}
-              height={32}
+            <span
+              className="app-logo-bg"
+              aria-label="Nabs logo"
+              role="img"
+              style={{ width: "32px", height: "32px", display: "inline-block" }}
             />
           }
           title="Nabs UI App"
@@ -86,7 +63,7 @@ export default function App() {
           }}
         >
           <span>© {new Date().getFullYear()} Your Company</span>
-          <ThemeToggle onToggle={() => setIsDarkTheme((current) => !current)} />
+          <ThemeToggle />
         </div>
       }
     >

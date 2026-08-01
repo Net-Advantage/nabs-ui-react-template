@@ -6,6 +6,7 @@ import "@net-advantage/nabs-ui-themes/style.css";
 import "@net-advantage/nabs-ui-themes-light/style.css";
 import "@net-advantage/nabs-ui-themes-dark/style.css";
 import "@net-advantage/nabs-ui-shell/style.css";
+import "./App.css";
 
 import App from "./App.tsx";
 

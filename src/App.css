@@ -1,0 +1,28 @@
+:root {
+	--app-logo-light: url("./assets/net-advantage-logo-launch-light.svg");
+	--app-logo-dark: url("./assets/net-advantage-logo-launch-dark.svg");
+	--app-logo-current: var(--app-logo-light);
+}
+
+.nabs-ui-theme-dark {
+	--app-logo-current: var(--app-logo-dark);
+}
+
+.nabs-ui-theme-light {
+	--app-logo-current: var(--app-logo-light);
+}
+
+.app-logo-bg {
+	background-image: var(--app-logo-current);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+.app-logo-bg-light {
+	background-image: var(--app-logo-light);
+}
+
+.app-logo-bg-dark {
+	background-image: var(--app-logo-dark);
+}
