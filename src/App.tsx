@@ -3,15 +3,20 @@ import {
   Branding,
   Navigation,
   Button,
-  Panel,
 } from "@net-advantage/nabs-ui-shell";
+import { useMemo, useState } from "react";
 import { ThemeViewModel } from "./viewmodels/theme.view-model";
+import { HomePage } from "./Pages/Home/HomePage";
+import { ElectricCarsPage } from "./Pages/ElectricCars/ElectricCarsPage";
+import { SettingsPage } from "./Pages/Settings/SettingsPage";
 
 const navItems = [
   { id: "home", label: "Home" },
-  { id: "items", label: "Items" },
+  { id: "electric-cars", label: "Electric Cars" },
   { id: "settings", label: "Settings" },
 ];
+
+type AppPageId = (typeof navItems)[number]["id"];
 
 function ThemeToggle() {
   const themeViewModel = new ThemeViewModel();
@@ -25,6 +30,20 @@ function ThemeToggle() {
 }
 
 export default function App() {
+  const [activePageId, setActivePageId] = useState<AppPageId>("home");
+
+  const activePage = useMemo(() => {
+    if (activePageId === "electric-cars") {
+      return <ElectricCarsPage />;
+    }
+
+    if (activePageId === "settings") {
+      return <SettingsPage />;
+    }
+
+    return <HomePage />;
+  }, [activePageId]);
+
   return (
     <Shell
       header={
@@ -45,12 +64,9 @@ export default function App() {
         <Navigation
           direction="vertical"
           textAlignment="left"
-          activeItemId="home"
+          activeItemId={activePageId}
           items={navItems}
-          onItemSelect={(id: string) => {
-            // Replace with your router later
-            console.log("navigate to", id);
-          }}
+          onItemSelect={(id: string) => setActivePageId(id as AppPageId)}
         />
       }
       footer={
@@ -68,16 +84,7 @@ export default function App() {
         </div>
       }
     >
-      <Panel header="Welcome">
-        <p>
-          This is a clean Nabs UI starter. The Shell is the root layout and the
-          official light/dark themes are already wired up.
-        </p>
-        <p>
-          Build all new UI using components imported from{" "}
-          <code>@net-advantage/nabs-ui-shell</code>.
-        </p>
-      </Panel>
+      {activePage}
     </Shell>
   );
 }
