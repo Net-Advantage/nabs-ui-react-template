@@ -33,7 +33,8 @@ Requirements:
 6. Map model items into Cards `items` shape with `id`, `header`, `content`, and `actions`.
 7. Keep shell branding/footer/theme toggle behavior unchanged.
 8. Create or update behavior tests in `tests/behavior/<page-token-kebab>-page-view-model.test.ts` for the new ViewModel, following the existing electric-cars test style.
-9. Run typecheck and unit tests, then fix any errors.
+9. Create or update Playwright UI tests in `tests/ui` to validate navigation to the new page and visible Cards output.
+10. Run typecheck, unit tests, and Playwright headless tests, then fix any errors.
 
 Architecture note:
 
@@ -43,8 +44,9 @@ Completion checklist:
 
 1. Run `pnpm typecheck` and fix all errors.
 2. Run `pnpm test:unit` and fix all failures.
-3. Verify `src/App.tsx` wiring is complete: import, nav item, and `useMemo` branch.
-4. Verify ViewModel is colocated and named `<PageToken>Page.view-model.ts`.
+3. Run `pnpm test:e2e:headless` and fix all failures.
+4. Verify `src/App.tsx` wiring is complete: import, nav item, and `useMemo` branch.
+5. Verify ViewModel is colocated and named `<PageToken>Page.view-model.ts`.
 
 If no topic is provided, default to:
 `Different types of electric cars and their specs.`

@@ -36,6 +36,19 @@ pnpm preview
 5. Default startup mode set to dark + compact
 6. Logo asset variants for light and dark backgrounds
 7. Out-of-the-box test setup for Playwright UI tests, MVVM structure checks, and ViewModel behavior tests
+8. Agent scaffold skill for card-based page generation with MVVM, navigation wiring, and test generation
+
+## Page and ViewModel conventions
+
+1. Each page lives in its own folder under [src/Pages](src/Pages).
+2. Page-level ViewModels are colocated with their page files and use the `.view-model.ts` suffix.
+3. Shell-level ViewModels live under [src/ShellComponents](src/ShellComponents).
+
+Example:
+
+1. [src/Pages/ElectricCars/ElectricCarsPage.tsx](src/Pages/ElectricCars/ElectricCarsPage.tsx)
+2. [src/Pages/ElectricCars/ElectricCarsPage.view-model.ts](src/Pages/ElectricCars/ElectricCarsPage.view-model.ts)
+3. [src/ShellComponents/theme.view-model.ts](src/ShellComponents/theme.view-model.ts)
 
 ## First things to customize
 
@@ -88,6 +101,7 @@ It also includes visual regression testing with Playwright screenshots.
 3. [tests/behavior](tests/behavior): ViewModel method behavior tests.
 4. [tests/setup](tests/setup): Shared Vitest test setup.
 5. [src/ShellComponents](src/ShellComponents): Shell-level ViewModel classes used by the app and targeted by behavior coverage.
+6. [src/Pages](src/Pages): Page-level folders with colocated page ViewModels.
 
 ### Quick testing workflow
 
@@ -119,6 +133,14 @@ Vitest coverage is configured to measure [src/ShellComponents](src/ShellComponen
 
 This makes sure template consumers do not skip testing the methods that hold UI behavior logic.
 
+### UI behavior coverage
+
+Playwright UI tests validate:
+
+1. Shell rendering and theme toggle behavior in [tests/ui/app.spec.ts](tests/ui/app.spec.ts).
+2. Navigation to the Electric Cars page and card rendering in [tests/ui/app.spec.ts](tests/ui/app.spec.ts).
+3. Visual regression baselines in [tests/ui/visual.spec.ts](tests/ui/visual.spec.ts).
+
 ### Playwright setup notes
 
 1. Playwright config is in [playwright.config.ts](playwright.config.ts).
@@ -141,6 +163,20 @@ pnpm test:e2e:headless
 ```
 
 This template includes a ready-to-use GitHub Actions workflow at [.github/workflows/ci-testing.yml](.github/workflows/ci-testing.yml) with two jobs: a fast quality job (lint, typecheck, Vitest) and a separate headless Playwright job.
+
+## Agent scaffolding for new card pages
+
+This template includes a repository skill and prompt for generating new card-based pages:
+
+1. Skill definition: [.github/skills/nabs-ui-cards-builder/SKILL.md](.github/skills/nabs-ui-cards-builder/SKILL.md)
+2. Prompt file: [.github/prompts/nabs-ui-cards-builder.prompt.md](.github/prompts/nabs-ui-cards-builder.prompt.md)
+
+The scaffold flow covers:
+
+1. Page and ViewModel creation with repo naming conventions.
+2. Navigation registration in [src/App.tsx](src/App.tsx).
+3. Unit behavior tests in [tests/behavior](tests/behavior).
+4. Playwright UI test updates in [tests/ui](tests/ui).
 
 ## TypeScript 7 configuration
 

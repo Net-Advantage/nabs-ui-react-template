@@ -14,6 +14,7 @@ Use this skill when the user asks to create a new page backed by `Cards` and add
 3. Page ViewModel file: `src/Pages/<PageToken>/<PageToken>Page.view-model.ts`.
 4. ViewModel class name: `<PageToken>PageViewModel`.
 5. Behavior test file: `tests/behavior/<page-token-kebab>-page-view-model.test.ts`.
+6. Playwright UI test updates: `tests/ui/app.spec.ts` (or a dedicated page UI spec).
 
 ## Inputs
 
@@ -45,6 +46,7 @@ Use this skill when the user asks to create a new page backed by `Cards` and add
 5. Keep each page in its own folder under `src/Pages`.
 6. Create or update a behavior unit test file under `tests/behavior` for the new page ViewModel.
 7. Match the existing wiring style in `src/App.tsx`: `navItems`, `AppPageId`, and `useMemo` switch block.
+8. Create or update Playwright UI tests that validate navigation to the new page and rendered card count/content.
 
 ## Cards contract
 
@@ -79,6 +81,7 @@ Map the ViewModel model to that shape in the page component.
 5. Register the page in `src/App.tsx` navigation and page switch logic.
 6. Preserve existing shell header/footer/theme behavior.
 7. Add behavior tests for the new ViewModel in `tests/behavior/<page-token-kebab>-page-view-model.test.ts`.
+8. Add Playwright UI tests in `tests/ui` for the new page route/selection and visible Cards output.
 
 ## App.tsx wiring template
 
@@ -119,6 +122,7 @@ const activePage = useMemo(() => {
 3. Updated navigation in `src/App.tsx`.
 4. Type-safe `Cards` rendering with exactly 4 cards by default.
 5. New or updated behavior unit tests for the page ViewModel in `tests/behavior`.
+6. New or updated Playwright UI tests in `tests/ui` covering page navigation and card rendering.
 
 ## Unit test expectations
 
@@ -164,6 +168,14 @@ describe("HousePlantsPageViewModel", () => {
 2. If architecture tests are extended later to enforce page-level rules, update those tests in the same change as page scaffolding.
 3. Always run `pnpm test:unit` after scaffolding to catch architecture regressions.
 
+## Playwright UI test expectations
+
+1. Add at least one UI test that opens `/`, selects the page from navigation, and validates the page header.
+2. Assert the page-specific prompt/intro text is visible.
+3. Assert Cards render with the expected count (default: 4).
+4. Assert at least one first-card label and one last-card label are visible.
+5. Run `pnpm test:e2e:headless` and fix failures.
+
 ## Example topic for smoke testing
 
 `Different types of electric cars and their specs.`
@@ -172,9 +184,11 @@ describe("HousePlantsPageViewModel", () => {
 
 1. New/updated files compile with `pnpm typecheck`.
 2. Unit tests pass with `pnpm test:unit`.
-3. App wiring works:
+3. Playwright UI tests pass with `pnpm test:e2e:headless`.
+4. App wiring works:
    - new nav item exists
    - `AppPageId` still derives from `navItems`
    - `useMemo` includes the new page branch
-4. ViewModel file is colocated and named `<PageToken>Page.view-model.ts`.
-5. Behavior tests exist and assert card-count/model-shape behavior.
+5. ViewModel file is colocated and named `<PageToken>Page.view-model.ts`.
+6. Behavior tests exist and assert card-count/model-shape behavior.
+7. UI tests exist and assert nav + header + card count behavior.
