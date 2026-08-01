@@ -5,6 +5,7 @@ import {
   Button,
   Panel,
 } from "@net-advantage/nabs-ui-shell";
+import { ThemeViewModel } from "./viewmodels/theme.view-model";
 
 const navItems = [
   { id: "home", label: "Home" },
@@ -13,11 +14,11 @@ const navItems = [
 ];
 
 function ThemeToggle() {
+  const themeViewModel = new ThemeViewModel();
+
   const toggle = () => {
     const root = document.documentElement;
-    const isDark = root.classList.contains("nabs-ui-theme-dark");
-    root.classList.remove("nabs-ui-theme-light", "nabs-ui-theme-dark");
-    root.classList.add(isDark ? "nabs-ui-theme-light" : "nabs-ui-theme-dark");
+    themeViewModel.toggleTheme(root);
   };
 
   return <Button onClick={toggle}>Toggle theme</Button>;
