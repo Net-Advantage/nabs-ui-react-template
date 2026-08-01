@@ -1,0 +1,6 @@
+{
+  "appHost": {
+    "path": "test-template.AppHost/test-template.AppHost.csproj"
+  },
+  "channel": "stable"
+}

@@ -1,0 +1,47 @@
+<Project>
+	<PropertyGroup>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+		<AspireVersion>13.4.6</AspireVersion>
+		<NabsLaunchpadVersion>10.0.255</NabsLaunchpadVersion>
+	</PropertyGroup>
+	<ItemGroup Label="Nabs.Launchpad Dependencies">
+		<PackageVersion Include="Nabs.Launchpad.Core.Activities" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.AI" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.AI.Clients" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.AI.Harness.Abstractions" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.AI.Mcp" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.AI.Menu" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.Apis" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.Context" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.Dtos" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.Gateway" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.Interfaces" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.Migrations" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.MigrationsCli" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.Persistence" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.Portal" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.Resources" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.Serialisation" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.ServiceDefaults" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.Silo" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.SiloClient" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.Testing" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.Testing.Silos" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.ViewModels" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Ui.Shell" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Ui.Shell.Blazor.Sf" Version="$(NabsLaunchpadVersion)" />
+	</ItemGroup>
+	<ItemGroup Label="xUnit Testing Packages">
+		<PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
+		<PackageVersion Include="xunit.v3" Version="3.2.2" />
+		<PackageVersion Include="xunit.analyzers" Version="1.27.0" />
+		<PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
+		<PackageVersion Include="coverlet.msbuild" Version="10.0.1" />
+	</ItemGroup>
+	<ItemGroup Label="Aspire Hosting Packages">
+		<PackageVersion Include="Aspire.Hosting" Version="$(AspireVersion)" />
+		<PackageVersion Include="Aspire.Hosting.Testing" Version="$(AspireVersion)" />
+		<PackageVersion Include="Aspire.Hosting.JavaScript" Version="$(AspireVersion)" />
+	</ItemGroup>
+	
+</Project>

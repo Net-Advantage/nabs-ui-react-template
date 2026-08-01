@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/NabsPrefix.Api/NabsPrefix.Api.csproj" />
+    <Project Path="src/NabsPrefix.AppHost/NabsPrefix.AppHost.csproj" />
+    <Project Path="src/NabsPrefix.Frontend/NabsPrefix.Fontend.esproj">
+      <Build />
+      <Deploy />
+    </Project>
+  </Folder>
+</Solution>
