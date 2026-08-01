@@ -87,7 +87,7 @@ It also includes visual regression testing with Playwright screenshots.
 2. [tests/architecture](tests/architecture): MVVM structure and convention checks.
 3. [tests/behavior](tests/behavior): ViewModel method behavior tests.
 4. [tests/setup](tests/setup): Shared Vitest test setup.
-5. [src/viewmodels](src/viewmodels): ViewModel classes used by the app and targeted by behavior coverage.
+5. [src/ShellComponents](src/ShellComponents): Shell-level ViewModel classes used by the app and targeted by behavior coverage.
 
 ### Quick testing workflow
 
@@ -101,7 +101,7 @@ pnpm test:all
 
 Current structural tests assert that:
 
-1. [src/viewmodels](src/viewmodels) exists.
+1. [src/ShellComponents](src/ShellComponents) exists.
 2. ViewModel files use the .view-model.ts suffix.
 3. ViewModels do not import React.
 4. ViewModel classes are exported with a ViewModel class name suffix.
@@ -110,7 +110,7 @@ If your team adds additional architecture requirements (for example, a src/model
 
 ### ViewModel behavioral coverage
 
-Vitest coverage is configured to measure [src/viewmodels](src/viewmodels) with thresholds:
+Vitest coverage is configured to measure [src/ShellComponents](src/ShellComponents) and page-level `*.view-model.ts` files with thresholds:
 
 1. Statements: 90%
 2. Functions: 90%

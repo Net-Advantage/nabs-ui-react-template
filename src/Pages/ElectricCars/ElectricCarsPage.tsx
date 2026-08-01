@@ -1,5 +1,5 @@
 import { Cards, Panel } from "@net-advantage/nabs-ui-shell";
-import { ElectricCarsPageViewModel } from "../../viewmodels/pages/electric-cars-page.view-model";
+import { ElectricCarsPageViewModel } from "./ElectricCarsPage.view-model";
 
 const electricCarsPageViewModel = new ElectricCarsPageViewModel();
 

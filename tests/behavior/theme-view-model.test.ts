@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { ThemeViewModel } from "../../src/viewmodels/theme.view-model";
+import { ThemeViewModel } from "../../src/ShellComponents/theme.view-model";
 
 describe("ThemeViewModel", () => {
   test("detects dark mode", () => {

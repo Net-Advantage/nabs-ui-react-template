@@ -6,7 +6,7 @@ import { describe, expect, test } from "vitest";
 
 const repositoryRoot = process.cwd();
 const srcRoot = path.join(repositoryRoot, "src");
-const viewModelsRoot = path.join(srcRoot, "viewmodels");
+const viewModelsRoot = path.join(srcRoot, "ShellComponents");
 
 async function walkFiles(directoryPath: string): Promise<string[]> {
   const entries = await readdir(directoryPath, { withFileTypes: true });
@@ -24,7 +24,7 @@ async function walkFiles(directoryPath: string): Promise<string[]> {
 }
 
 describe("MVVM project structure", () => {
-  test("has a src/viewmodels folder", async () => {
+  test("has a src/ShellComponents folder", async () => {
     const folderInfo = await stat(viewModelsRoot);
     expect(folderInfo.isDirectory()).toBe(true);
   });

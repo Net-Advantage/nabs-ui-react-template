@@ -11,7 +11,7 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["text", "html", "lcov"],
-      include: ["src/viewmodels/**/*.ts"],
+      include: ["src/ShellComponents/**/*.ts", "src/Pages/**/**.view-model.ts"],
       thresholds: {
         lines: 90,
         functions: 90,

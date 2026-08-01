@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { ElectricCarsPageViewModel } from "../../src/viewmodels/pages/electric-cars-page.view-model";
+import { ElectricCarsPageViewModel } from "../../src/Pages/ElectricCars/ElectricCarsPage.view-model";
 
 describe("ElectricCarsPageViewModel", () => {
   test("provides a default topic prompt", () => {

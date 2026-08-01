@@ -14,11 +14,12 @@ User input:
 Requirements:
 
 1. Create a new page folder in `src/Pages/<PageName>` with `<PageName>Page.tsx`.
-2. Create a matching ViewModel in `src/viewmodels/pages` using `.view-model.ts` naming.
+2. Create a matching ViewModel in the same page folder under `src/Pages/<PageName>` using `.view-model.ts` naming.
 3. Generate a typed model from `topicPrompt` and render 4 Cards via `Cards` from `@net-advantage/nabs-ui-shell`.
 4. Add a new item to navigation in `src/App.tsx` and make it selectable.
 5. Keep shell branding/footer/theme toggle behavior unchanged.
-6. Run typecheck and fix any errors.
+6. Create or update behavior tests in `tests/behavior/<page-name>-page-view-model.test.ts` for the new ViewModel.
+7. Run typecheck and unit tests, then fix any errors.
 
 If no topic is provided, default to:
 `Different types of electric cars and their specs.`

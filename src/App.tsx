@@ -5,7 +5,7 @@ import {
   Button,
 } from "@net-advantage/nabs-ui-shell";
 import { useMemo, useState } from "react";
-import { ThemeViewModel } from "./viewmodels/theme.view-model";
+import { ThemeViewModel } from "./ShellComponents/theme.view-model";
 import { HomePage } from "./Pages/Home/HomePage";
 import { ElectricCarsPage } from "./Pages/ElectricCars/ElectricCarsPage";
 import { SettingsPage } from "./Pages/Settings/SettingsPage";
