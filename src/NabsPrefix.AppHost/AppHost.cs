@@ -1,13 +1,13 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-var server = builder.AddProject<Projects.NabsPrefix_Api>("api")
+var api = builder.AddProject<Projects.NabsPrefix_Api>("api")
     .WithHttpHealthCheck("/health")
     .WithExternalHttpEndpoints();
 
-var webfrontend = builder.AddViteApp("frontend", "../NabsPrefix.Frontend")
-    .WithReference(server)
-    .WaitFor(server);
+var webfrontend = builder.AddViteApp("webfrontend", "../NabsPrefix.Frontend")
+    .WithReference(api)
+    .WaitFor(api);
 
-server.PublishWithContainerFiles(webfrontend, "wwwroot");
+api.PublishWithContainerFiles(webfrontend, "wwwroot");
 
 builder.Build().Run();

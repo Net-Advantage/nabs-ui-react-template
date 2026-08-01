@@ -1,9 +1,21 @@
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 
+const apiBaseUrl =
+  process.env.services__api__http__0 ?? process.env.SERVICES__API__HTTP__0 ?? "http://localhost:5363";
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    proxy: {
+      "/api": {
+        target: apiBaseUrl,
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
   test: {
     environment: "jsdom",
     setupFiles: ["./tests/setup/vitest.setup.ts"],

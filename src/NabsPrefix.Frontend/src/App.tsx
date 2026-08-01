@@ -8,11 +8,13 @@ import { useMemo, useState } from "react";
 import { ThemeViewModel } from "./ShellComponents/theme.view-model";
 import { HomePage } from "./Pages/Home/HomePage";
 import { ElectricCarsPage } from "./Pages/ElectricCars/ElectricCarsPage";
+import { WeatherPage } from "./Pages/Weather/WeatherPage";
 import { SettingsPage } from "./Pages/Settings/SettingsPage";
 
 const navItems = [
   { id: "home", label: "Home" },
   { id: "electric-cars", label: "Electric Cars" },
+  { id: "weather", label: "Weather" },
   { id: "settings", label: "Settings" },
 ];
 
@@ -35,6 +37,10 @@ export default function App() {
   const activePage = useMemo(() => {
     if (activePageId === "electric-cars") {
       return <ElectricCarsPage />;
+    }
+
+    if (activePageId === "weather") {
+      return <WeatherPage />;
     }
 
     if (activePageId === "settings") {

@@ -8,8 +8,4 @@
     <PackageReference Include="Nabs.Launchpad.Core.Apis" />
     <PackageReference Include="Nabs.Launchpad.Core.ServiceDefaults" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Endpoints\" />
-  </ItemGroup>
 </Project>
