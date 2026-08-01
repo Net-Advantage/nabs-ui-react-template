@@ -170,6 +170,7 @@ This template includes a repository skill and prompt for generating new card-bas
 
 1. Skill definition: [.github/skills/nabs-ui-cards-builder/SKILL.md](.github/skills/nabs-ui-cards-builder/SKILL.md)
 2. Prompt file: [.github/prompts/nabs-ui-cards-builder.prompt.md](.github/prompts/nabs-ui-cards-builder.prompt.md)
+3. Skill quick guide: [.github/skills/nabs-ui-cards-builder/README.md](.github/skills/nabs-ui-cards-builder/README.md)
 
 The scaffold flow covers:
 
