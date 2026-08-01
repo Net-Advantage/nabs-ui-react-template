@@ -1,11 +1,16 @@
 {
-  "name": "temp",
+  "name": "nabs-ui-react-template",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "pnpm run build:ts && vite build",
+    "build:ts": "tsc -b --checkers 8 --builders 4",
+    "build:ts:ci": "tsc -b --checkers 2 --builders 1",
+    "typecheck": "tsc -b --checkers 8 --builders 4",
+    "typecheck:watch": "tsc -b --watch --checkers 8 --builders 4",
+    "typecheck:single": "tsc -b --singleThreaded",
     "lint": "oxlint",
     "preview": "vite preview"
   },

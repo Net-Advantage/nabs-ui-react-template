@@ -1,32 +1,119 @@
-# React + TypeScript + Vite
+# Nabs UI React Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Production-ready GitHub template for building React apps with the Nabs UI design system, Vite, and TypeScript.
 
-Currently, two official plugins are available:
+## Use this template
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Click Use this template on GitHub.
+2. Create your new repository from this template.
+3. Clone your new repository locally.
 
-## React Compiler
+## Prerequisites
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Node.js 20+
+2. pnpm 10+
 
-## Expanding the Oxlint configuration
+## Quick start
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+1. Install dependencies.
+2. Start development server.
+3. Build production bundle.
+4. Preview production build.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+pnpm install
+pnpm dev
+pnpm build
+pnpm preview
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## What this template includes
+
+1. React 19 + TypeScript + Vite
+2. Nabs UI Shell layout
+3. Nabs UI Branding component in the app header
+4. Theme packages for light and dark mode
+5. Default startup mode set to dark + compact
+6. Logo asset variants for light and dark backgrounds
+
+## First things to customize
+
+1. App branding: Update title and byline in [src/App.tsx](src/App.tsx).
+2. Logos: Replace files in [src/assets/net-advantage-logo-launch-light.svg](src/assets/net-advantage-logo-launch-light.svg) and [src/assets/net-advantage-logo-launch-dark.svg](src/assets/net-advantage-logo-launch-dark.svg).
+3. Navigation: Edit nav items in [src/App.tsx](src/App.tsx) to match your app sections.
+4. Footer content: Update organization name and links in [src/App.tsx](src/App.tsx).
+
+## Project scripts
+
+1. pnpm dev: Runs Vite dev server.
+2. pnpm build: Runs TypeScript project build (TS7 parallel checkers/builders) and Vite production build.
+3. pnpm build:ts: Runs TypeScript project references build with TS7 parallelization (`--checkers 8 --builders 4`).
+4. pnpm build:ts:ci: Lower-parallel TS7 build profile for resource-constrained CI (`--checkers 2 --builders 1`).
+5. pnpm typecheck: Fast TS7 type-check across project references (`--checkers 8 --builders 4`).
+6. pnpm typecheck:watch: TS7 watch mode with parallel checkers/builders (`--checkers 8 --builders 4`).
+7. pnpm typecheck:single: TS7 single-threaded mode for deterministic debugging/perf comparison.
+8. pnpm preview: Serves the built app locally.
+9. pnpm lint: Runs Oxlint.
+10. ./update-packages.ps1: Updates workspace dependencies to latest and refreshes lockfile.
+
+## TypeScript 7 configuration
+
+1. This template uses TypeScript 7 from your workspace dependencies.
+2. VS Code is configured to use the workspace TypeScript SDK in [.vscode/settings.json](.vscode/settings.json).
+3. Build scripts use TS7 parallel controls:
+   checkers for type-check worker count, builders for project reference parallelism, and singleThreaded for debugging.
+
+## TypeScript config layout
+
+This template uses a small project-reference layout so browser code and Node tooling stay cleanly separated.
+
+1. [tsconfig.base.json](tsconfig.base.json): Shared defaults used by all TypeScript projects in this repo.
+2. [tsconfig.app.json](tsconfig.app.json): React/browser app config for files in src.
+3. [tsconfig.node.json](tsconfig.node.json): Node/tooling config for files like [vite.config.ts](vite.config.ts).
+4. [tsconfig.json](tsconfig.json): Root coordinator that references app and node projects for tsc -b.
+
+Architecture at a glance:
+
+```text
+tsconfig.base.json
+	├─ tsconfig.app.json   (browser + React code in src)
+	├─ tsconfig.node.json  (Node tooling, vite.config.ts)
+	└─ tsconfig.json       (root project references coordinator)
+```
+
+Maintenance rule of thumb:
+
+1. Put common options in [tsconfig.base.json](tsconfig.base.json).
+2. Put environment-specific options only in app/node configs.
+
+## Theme behavior
+
+1. Default theme classes are applied in [src/main.tsx](src/main.tsx).
+2. Theme toggle is rendered in the footer in [src/App.tsx](src/App.tsx).
+3. Logo variant switches automatically between light and dark assets.
+
+## Supply-chain policy note for pnpm
+
+This repo may enforce pnpm minimum release age checks. If very new package versions fail to install or run, review policy settings in [pnpm-workspace.yaml](pnpm-workspace.yaml).
+
+If you intentionally upgraded to freshly published versions, align your policy before running install or dev.
+
+Common recovery flow:
+
+```bash
+pnpm clean --lockfile
+pnpm install
+```
+
+## Recommended next step after creating a repo from this template
+
+1. Rename the package and app title.
+2. Replace logos and branding text.
+3. Remove any placeholder content in [src/App.tsx](src/App.tsx).
+4. Commit as your project baseline.
+
+## Maintainer notes for template updates
+
+1. Keep dependency versions in [package.json](package.json), [pnpm-lock.yaml](pnpm-lock.yaml), and [pnpm-workspace.yaml](pnpm-workspace.yaml) aligned.
+2. If you add new default assets, update references in [src/App.tsx](src/App.tsx) and this README.
+3. Run build and lint before publishing template updates.
