@@ -6,5 +6,6 @@
       <Build />
       <Deploy />
     </Project>
+    <Project Path="src/NabsPrefix.Gateway/NabsPrefix.Gateway.csproj" />
   </Folder>
 </Solution>

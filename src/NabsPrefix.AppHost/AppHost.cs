@@ -10,4 +10,6 @@ var webfrontend = builder.AddViteApp("webfrontend", "../NabsPrefix.Frontend")
 
 api.PublishWithContainerFiles(webfrontend, "wwwroot");
 
+builder.AddProject<Projects.NabsPrefix_Gateway>("nabsprefix-gateway");
+
 builder.Build().Run();

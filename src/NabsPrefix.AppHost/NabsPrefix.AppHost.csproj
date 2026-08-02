@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NabsPrefix.Api\NabsPrefix.Api.csproj" />
+    <ProjectReference Include="..\NabsPrefix.Gateway\NabsPrefix.Gateway.csproj" />
   </ItemGroup>
 
   <ItemGroup>
