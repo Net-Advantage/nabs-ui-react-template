@@ -8,4 +8,9 @@
     <PackageReference Include="Nabs.Launchpad.Core.Apis" />
     <PackageReference Include="Nabs.Launchpad.Core.ServiceDefaults" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NabsPrefix.Domain\NabsPrefix.Domain.csproj" />
+    <ProjectReference Include="..\NabsPrefix.Dtos\NabsPrefix.Dtos.csproj" />
+  </ItemGroup>
 </Project>

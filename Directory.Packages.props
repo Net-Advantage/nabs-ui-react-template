@@ -1,8 +1,8 @@
 <Project>
 	<PropertyGroup>
 		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-		<AspireVersion>13.4.6</AspireVersion>
-		<NabsLaunchpadVersion>10.0.255</NabsLaunchpadVersion>
+		<AspireVersion>13.5.3</AspireVersion>
+		<NabsLaunchpadVersion>10.0.272</NabsLaunchpadVersion>
 	</PropertyGroup>
 	<ItemGroup Label="Nabs.Launchpad Dependencies">
 		<PackageVersion Include="Nabs.Launchpad.Core.Activities" Version="$(NabsLaunchpadVersion)" />
@@ -11,9 +11,13 @@
 		<PackageVersion Include="Nabs.Launchpad.Core.AI.Harness.Abstractions" Version="$(NabsLaunchpadVersion)" />
 		<PackageVersion Include="Nabs.Launchpad.Core.AI.Mcp" Version="$(NabsLaunchpadVersion)" />
 		<PackageVersion Include="Nabs.Launchpad.Core.AI.Menu" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.AI.Tools" Version="$(NabsLaunchpadVersion)" />
 		<PackageVersion Include="Nabs.Launchpad.Core.Apis" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.Aspire.Hosting" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.Configuration" Version="$(NabsLaunchpadVersion)" />
 		<PackageVersion Include="Nabs.Launchpad.Core.Context" Version="$(NabsLaunchpadVersion)" />
 		<PackageVersion Include="Nabs.Launchpad.Core.Dtos" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.FeatureFlags" Version="$(NabsLaunchpadVersion)" />
 		<PackageVersion Include="Nabs.Launchpad.Core.Gateway" Version="$(NabsLaunchpadVersion)" />
 		<PackageVersion Include="Nabs.Launchpad.Core.Interfaces" Version="$(NabsLaunchpadVersion)" />
 		<PackageVersion Include="Nabs.Launchpad.Core.Migrations" Version="$(NabsLaunchpadVersion)" />
@@ -27,6 +31,7 @@
 		<PackageVersion Include="Nabs.Launchpad.Core.SiloClient" Version="$(NabsLaunchpadVersion)" />
 		<PackageVersion Include="Nabs.Launchpad.Core.Testing" Version="$(NabsLaunchpadVersion)" />
 		<PackageVersion Include="Nabs.Launchpad.Core.Testing.Silos" Version="$(NabsLaunchpadVersion)" />
+		<PackageVersion Include="Nabs.Launchpad.Core.ThirdPartyServices" Version="$(NabsLaunchpadVersion)" />
 		<PackageVersion Include="Nabs.Launchpad.Core.ViewModels" Version="$(NabsLaunchpadVersion)" />
 		<PackageVersion Include="Nabs.Launchpad.Ui.Shell" Version="$(NabsLaunchpadVersion)" />
 		<PackageVersion Include="Nabs.Launchpad.Ui.Shell.Blazor.Sf" Version="$(NabsLaunchpadVersion)" />
@@ -41,7 +46,7 @@
 	<ItemGroup Label="Aspire Hosting Packages">
 		<PackageVersion Include="Aspire.Hosting" Version="$(AspireVersion)" />
 		<PackageVersion Include="Aspire.Hosting.Testing" Version="$(AspireVersion)" />
-		<PackageVersion Include="Aspire.Hosting.JavaScript" Version="$(AspireVersion)" />
+		<PackageVersion Include="Aspire.Hosting.JavaScript" Version="13.5.3" />
 	</ItemGroup>
 	
 </Project>

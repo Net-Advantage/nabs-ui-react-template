@@ -2,10 +2,13 @@
   <Folder Name="/src/">
     <Project Path="src/NabsPrefix.Api/NabsPrefix.Api.csproj" />
     <Project Path="src/NabsPrefix.AppHost/NabsPrefix.AppHost.csproj" />
+    <Project Path="src/NabsPrefix.Domain/NabsPrefix.Domain.csproj" Id="60e63a6d-ac27-4070-902c-753b1b6312eb" />
+    <Project Path="src/NabsPrefix.Dtos/NabsPrefix.Dtos.csproj" Id="9aeea775-07e4-4ede-af1d-417e6dd3b4db" />
     <Project Path="src/NabsPrefix.Frontend/NabsPrefix.Fontend.esproj">
       <Build />
       <Deploy />
     </Project>
     <Project Path="src/NabsPrefix.Gateway/NabsPrefix.Gateway.csproj" />
+    <Project Path="src/NabsPrefix.Persistence/NabsPrefix.Persistence.csproj" Id="ed032024-8c1d-400b-ab8e-e50fde75852d" />
   </Folder>
 </Solution>
